@@ -26,7 +26,9 @@ void Fix(FileSystemEntity file) {
   final String SCRIPT_START = '<script>';
   final String SCRIPT_END = '</script>';
   String content = readfile.readAsStringSync();
-  int scriptStart = content.indexOf(SCRIPT_START);
+  // To get actual <script> tag. which is not a comment.
+  // TODO: Use DomParser.
+  int scriptStart = content.lastIndexOf(SCRIPT_START);
   int scriptEnd = content.indexOf(SCRIPT_END, scriptStart + 30);
   if (scriptStart == -1 || scriptEnd == -1)
     return;
