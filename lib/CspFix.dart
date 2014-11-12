@@ -4,6 +4,7 @@
 library CspFix;
 
 import 'dart:io';
+import 'package:path/path.dart';
 
 export 'src/CspFix_base.dart';
 
@@ -12,23 +13,32 @@ export 'src/CspFix_base.dart';
 void Fix(FileSystemEntity file) {
   if (FileSystemEntity.isDirectorySync(file.path)) {
     Directory current = file;
-    current.listSync(recursive: true).forEach((one) {
-      return Fix(current);
+    current.listSync().forEach((one) {
+      return Fix(one);
     });
   }
-  
+
   File readfile = file;
-  String content = readfile.readAsStringSync().toLowerCase();
-  int scriptStart = content.indexOf('<script');
-  int scriptEnd = content.indexOf('script>', scriptStart + 30);
-  String scriptContent = content.substring(scriptStart, scriptEnd + 7);
-  
+  if (!readfile.path.endsWith('.html'))
+    return;
+
+  // TODO(sungguk) : Use domParser. string.indexOf treats <script> in comment.
+  final String SCRIPT_START = '<script>';
+  final String SCRIPT_END = '</script>';
+  String content = readfile.readAsStringSync();
+  int scriptStart = content.indexOf(SCRIPT_START);
+  int scriptEnd = content.indexOf(SCRIPT_END, scriptStart + 30);
+  if (scriptStart == -1 || scriptEnd == -1)
+    return;
+  String scriptContent =
+      content.substring(scriptStart + SCRIPT_START.length, scriptEnd);
+
   File scriptFile = new File(readfile.path + '_csp.js');
   scriptFile.createSync();
   scriptFile.writeAsStringSync(scriptContent);
-  
+
   content = content.substring(0, scriptStart)
-          + '<script src="${scriptFile.path}"></script>'
-          + content.substring(scriptEnd + 7);
+          + '<script src="${basename(scriptFile.path)}"></script>'
+          + content.substring(scriptEnd + SCRIPT_END.length);
   readfile.writeAsStringSync(content);
 }

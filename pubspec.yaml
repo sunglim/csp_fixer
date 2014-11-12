@@ -1,9 +1,9 @@
 name: CspFix
-description: Fix csp issue for chromeapp
-version: 0.0.2
+version: 0.0.4
 author: Sungguk Lim <limasdf@gmail.com>
+description: Fix csp issue for chromeapp
 homepage: https://github.com/sunglim/CspFixer
-#dependencies:
-#  lib_name: any
+dependencies:
+  path: any
 dev_dependencies:
   unittest: any
