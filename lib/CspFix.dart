@@ -3,18 +3,28 @@
 
 library CspFix;
 
-import 'dart:async';
 import 'dart:io';
 
 export 'src/CspFix_base.dart';
 
-Future Fix(FileSystemEntity file) {
+// Run csp fix. create new javascript file.
+// handle only first <script /> tag.
+void Fix(FileSystemEntity file) {
   if (FileSystemEntity.isDirectorySync(file.path))
     return Fix(file);
   
-  // read file
-  // strip javascript and dart
-  // save to external file
-  // run next.
-  return new Future();
+  File readfile = file;
+  String content = readfile.readAsStringSync().toLowerCase();
+  int scriptStart = content.indexOf('<script');
+  int scriptEnd = content.indexOf('script>', scriptStart + 30);
+  String scriptContent = content.substring(scriptStart, scriptEnd + 7);
+  
+  File scriptFile = new File(readfile.path + '_csp.js');
+  scriptFile.createSync();
+  scriptFile.writeAsStringSync(scriptContent);
+  
+  content = content.substring(0, scriptStart)
+          + '<script src="${scriptFile.path}"></script>'
+          + content.substring(scriptEnd + 7);
+  readfile.writeAsStringSync(content);
 }

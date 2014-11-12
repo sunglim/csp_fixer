@@ -3,6 +3,7 @@
 
 library CspFix.test;
 
+import 'dart:io';
 import 'package:unittest/unittest.dart';
 import 'package:CspFix/CspFix.dart';
 
@@ -16,6 +17,12 @@ main() {
 
     test('First Test', () {
       expect(awesome.isAwesome, isTrue);
+    });
+    
+    test('Read file', () {
+      Fix(new File('paper-ripple.html'));
+      expect(new File('paper-ripple.html').readAsStringSync(),
+             new File('paper-ripple-expected.html').readAsStringSync());
     });
   });
 }
