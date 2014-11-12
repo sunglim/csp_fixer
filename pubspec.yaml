@@ -1,5 +1,5 @@
 name: CspFix
-version: 0.0.4
+version: 0.0.5
 author: Sungguk Lim <limasdf@gmail.com>
 description: Fix csp issue for chromeapp
 homepage: https://github.com/sunglim/CspFixer
