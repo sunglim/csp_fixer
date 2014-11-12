@@ -15,6 +15,11 @@ main() {
       awesome = new Awesome();
     });
 
+    tearDown(() {
+      // Restore the action, 'Read file'.
+      new File('paper-ripple.html_original').copySync('paper-ripple.html');
+    });
+
     test('First Test', () {
       expect(awesome.isAwesome, isTrue);
     });
