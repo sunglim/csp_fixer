@@ -10,8 +10,12 @@ export 'src/CspFix_base.dart';
 // Run csp fix. create new javascript file.
 // handle only first <script /> tag.
 void Fix(FileSystemEntity file) {
-  if (FileSystemEntity.isDirectorySync(file.path))
-    return Fix(file);
+  if (FileSystemEntity.isDirectorySync(file.path)) {
+    Directory current = file;
+    current.listSync(recursive: true).forEach((one) {
+      return Fix(current);
+    });
+  }
   
   File readfile = file;
   String content = readfile.readAsStringSync().toLowerCase();
