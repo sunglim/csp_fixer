@@ -3,7 +3,7 @@
 
 // TODO: Put public facing types in this file.
 
-library CspFix.base;
+library csp_fixer.base;
 
 /// Checks if you are awesome. Spoiler: you are.
 class Awesome {

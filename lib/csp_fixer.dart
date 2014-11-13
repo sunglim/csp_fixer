@@ -1,12 +1,12 @@
 // Copyright (c) 2014, <your name>. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
-library CspFix;
+library csp_fixer;
 
 import 'dart:io';
 import 'package:path/path.dart';
 
-export 'src/CspFix_base.dart';
+export 'src/csp_fixer_base.dart';
 
 // Run csp fix. create new javascript file.
 // handle only first <script /> tag.

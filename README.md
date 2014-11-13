@@ -1,19 +1,17 @@
-# CspFix
+# csp_fixer
 
-A library for Dart developers. It is awesome.
+A library to fix csp issue from Chrome App.
 
 ## Usage
 
 A simple usage example:
 
-    import 'package:CspFix/CspFix.dart';
+    import 'package:csp_fixer/csp_fixer.dart';
 
-    main() {
-      var awesome = new Awesome();
-    }
+    Fix(new Directory('foo'));
 
 ## Features and bugs
 
 Please file feature requests and bugs at the [issue tracker][tracker].
 
-[tracker]: http://example.com/issues/replaceme
+[tracker]: https://github.com/sunglim/csp_fixer/issues
