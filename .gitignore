@@ -1,6 +1,9 @@
 build/
 cache/
+lib/packages/
 packages/
+test/packages
+example/packages
 .buildlog
 
 *.dart.js
