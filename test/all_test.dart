@@ -16,18 +16,18 @@ main() {
     });
 
     tearDown(() {
-      // Restore the action, 'Read file'.
-      new File('paper-ripple.html_original').copySync('paper-ripple.html');
+      new File('./resource/core-meta-original.html')
+          .copySync('./resource/core-meta.html');
     });
 
     test('First Test', () {
       expect(awesome.isAwesome, isTrue);
     });
     
-    test('Read file', () {
-      Fix(new File('paper-ripple.html'));
-      expect(new File('paper-ripple.html').readAsStringSync(),
-             new File('paper-ripple-expected.html').readAsStringSync());
+    test ('One File', () {
+      Fix(new File('./resource/core-meta.html'));
+      expect(new File('./resource/core-meta-expect.html').readAsStringSync(),
+             new File('./resource/core-meta.html').readAsStringSync());
     });
   });
 }
