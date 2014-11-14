@@ -9,21 +9,11 @@ import 'package:csp_fixer/csp_fixer.dart';
 
 main() {
   group('A group of tests', () {
-    Awesome awesome;
-
-    setUp(() {
-      awesome = new Awesome();
-    });
-
     tearDown(() {
       new File('./resource/core-meta-original.html')
           .copySync('./resource/core-meta.html');
     });
 
-    test('First Test', () {
-      expect(awesome.isAwesome, isTrue);
-    });
-    
     test ('One File', () {
       Fix(new File('./resource/core-meta.html'));
       expect(new File('./resource/core-meta-expect.html').readAsStringSync(),
