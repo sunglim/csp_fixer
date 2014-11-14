@@ -3,6 +3,9 @@
 
 A library to fix csp issue from Chrome App.
 
+## License
+MIT License.
+
 ## Usage
 
 A simple usage example:
