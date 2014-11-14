@@ -6,8 +6,6 @@ library csp_fixer;
 import 'dart:io';
 import 'package:path/path.dart';
 
-export 'src/csp_fixer_base.dart';
-
 // Run csp fix. create new javascript file.
 // handle only first <script /> tag.
 void Fix(FileSystemEntity file) {
