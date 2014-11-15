@@ -1,5 +1,5 @@
 name: csp_fixer
-version: 0.0.7
+version: 0.1.0
 author: Sungguk Lim <limasdf@gmail.com>
 description: Fix csp issue for chrome app
 homepage: https://github.com/sunglim/csp_fixer
