@@ -8,19 +8,18 @@ import 'package:path/path.dart';
 
 // Run csp fix. create new javascript file.
 // handle only first <script /> tag.
-void Fix(FileSystemEntity file) {
-  if (file is Directory) {
-    Directory current = file;
-    current.listSync().forEach((one) {
-      return Fix(one);
+void Fix(FileSystemEntity entity) {
+  if (entity is Directory) {
+    entity.listSync().forEach((directory_entity) {
+      return Fix(directory_entity);
     });
   }
 
   // How Directory can enter here?
-  if (file is Directory) {
+  if (entity is Directory) {
     return;
   }
-  File readfile = file;
+  File readfile = entity;
   if (!readfile.path.endsWith('.html'))
     return;
 
@@ -31,7 +30,7 @@ void Fix(FileSystemEntity file) {
   // To get actual <script> tag. which is not a comment.
   // TODO: Use DomParser.
   int scriptStart = content.lastIndexOf(SCRIPT_START);
-  int scriptEnd = content.indexOf(SCRIPT_END, scriptStart + 30);
+  int scriptEnd = content.indexOf(SCRIPT_END, scriptStart + 1);
   if (scriptStart == -1 || scriptEnd == -1)
     return;
   String scriptContent =
