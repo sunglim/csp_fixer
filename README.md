@@ -14,8 +14,32 @@ A simple usage example:
 
     Fix(new Directory('foo'));
 
+## To run from command-line:
+Requirement:
+
+Dart SDK 1.7 or greater on your path.
+Set pub scripts on your PATH. See how to [Link1].
+
+Install:
+
+    $> pub global activate csp_fixer
+    
+Update:
+
+    # activate csp_fixer again
+    $> pub global activate csp_fixer
+    
+Run csp:
+
+    # ./core_elements is where you want to fix csp issue.
+    $> csp_fix ./core_elements
+
+    # core.html is what you want to fix csp issue.
+    $> csp_fix core.html
+    
 ## Features and bugs
 
 Please file feature requests and bugs at the [issue tracker][tracker].
 
 [tracker]: https://github.com/sunglim/csp_fixer/issues
+[Link1]: https://www.dartlang.org/tools/pub/cmd/pub-global.html#running-a-script-from-your-path
