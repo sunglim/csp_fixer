@@ -9,13 +9,17 @@ import 'package:path/path.dart';
 // Run csp fix. create new javascript file.
 // handle only first <script /> tag.
 void Fix(FileSystemEntity file) {
-  if (FileSystemEntity.isDirectorySync(file.path)) {
+  if (file is Directory) {
     Directory current = file;
     current.listSync().forEach((one) {
       return Fix(one);
     });
   }
 
+  // How Directory can enter here?
+  if (file is Directory) {
+    return;
+  }
   File readfile = file;
   if (!readfile.path.endsWith('.html'))
     return;

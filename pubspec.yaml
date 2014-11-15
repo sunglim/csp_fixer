@@ -4,8 +4,9 @@ author: Sungguk Lim <limasdf@gmail.com>
 description: Fix csp issue for chrome app
 homepage: https://github.com/sunglim/csp_fixer
 dependencies:
+  grinder: any
   path: any
 dev_dependencies:
   unittest: any
 executables:
-  csp_fixer:
+  csp_fixer: null

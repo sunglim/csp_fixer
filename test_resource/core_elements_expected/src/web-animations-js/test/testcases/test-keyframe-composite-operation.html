@@ -1,0 +1,55 @@
+<!--
+Copyright 2013 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE html><meta charset="UTF-8">
+<style>
+div#targets {
+  width: 100px;
+}
+div#targets div {
+  /* To allow zIndex to take effect. */
+  position: relative;
+}
+</style>
+
+<div id="targets"></div>
+
+<script>
+var expected_failures = [
+  {
+    browser_configurations: [{ chrome: true }],
+    tests: ['Add-composite the neutral value onto a percent length type property with default value'],
+    message: 'getComputedStyle is broken under Chrome and this will return auto while the specification says it should return pixels. crbug.com/229280',
+  }, {
+    browser_configurations: [{ msie: true }],
+    tests: ['(Add|Replace)-composite a color type property at t=1ms'],
+    message: 'IE returns rbga values.',
+  }, {
+    browser_configurations: [{ msie: true }],
+    tests: [
+      '(Add|Replace)-composite a shadow type property at t=1ms',
+      'Add-composite the neutral value onto a shadow type property at t=0ms',
+    ],
+    message: 'IE returns different shadow format.',
+  }, {
+    browser_configurations: [{ msie: true }],
+    tests: ['Add-composite the neutral value onto a (percent length|shadow|transform) type property with default value at t=0ms'],
+    message: 'IE returns auto|none|none.',
+  }
+];
+</script>
+<script src="../bootstrap.js"></script>
+<script src="test-keyframe-composite-operation.html_csp.js"></script>

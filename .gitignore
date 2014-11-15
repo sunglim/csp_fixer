@@ -3,7 +3,9 @@
 *.js.deps
 *.js.map
 *.js_
+*.swp
 .buildlog
+.pub
 bin/packages
 build/
 cache/

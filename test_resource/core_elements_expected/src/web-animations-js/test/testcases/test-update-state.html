@@ -1,0 +1,32 @@
+<!--
+Copyright 2013 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!DOCTYPE html><meta charset="UTF-8">
+
+<script>
+var expected_failures = [
+  {
+    browser_configurations: [{ firefox: true }],
+    tests: ['Updated style should be visible despite unrelated errors at t=5ms'],
+    message: 'Issue with window sizing cause value to be zero rather then 500px.',
+  }, {
+    browser_configurations: [{ msie: true }],
+    tests: ['Changing the start time of a new player to before the current time should cause it to take effect at t=3ms'],
+    message: 'IE returns rgba.',
+  }
+];
+</script>
+<script src="../bootstrap.js"></script>
+<script src="test-update-state.html_csp.js"></script>
