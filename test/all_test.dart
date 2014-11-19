@@ -17,12 +17,14 @@ main() {
       Directory core_element_dir = new Directory('../test_resource/core_elements');
       grinder_file.deleteEntity(core_element_dir);
       grinder_file.copyDirectory(new Directory('../test_resource/core_elements_original'), core_element_dir);
-    });
+     });
 
     test ('Fix File', () {
-      expect(true,true);
+      csp_fix.Fix(new File('./resource/core-meta.html'));
+      expect(new File('./resource/core-meta.html').readAsStringSync(),
+          new File('./resource/core-meta-expect.html').readAsStringSync());
     });
-
+/*
     test ('Fix Directory', () {
       Directory target = new Directory('../test_resource/core_elements');
       csp_fix.Fix(target);
@@ -42,5 +44,6 @@ main() {
       });
       expect(content, expectedContent);
     });
+     */
   });
 }

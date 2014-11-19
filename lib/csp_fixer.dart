@@ -4,44 +4,42 @@
 library csp_fixer;
 
 import 'dart:io';
+
 import 'package:path/path.dart';
+import 'package:html5lib/dom.dart' as dom;
+import 'package:html5lib/parser.dart' show parse;
 
 // Run csp fix. create new javascript file.
-// handle only first <script /> tag.
 void Fix(FileSystemEntity entity) {
   if (entity is Directory) {
     entity.listSync().forEach((directory_entity) {
       return Fix(directory_entity);
     });
   }
-
   // How Directory can enter here?
   if (entity is Directory) {
     return;
   }
+  
+
   File readfile = entity;
   if (!readfile.path.endsWith('.html'))
     return;
 
-  // TODO(sungguk) : Use domParser. string.indexOf treats <script> in comment.
-  final String SCRIPT_START = '<script>';
-  final String SCRIPT_END = '</script>';
-  String content = readfile.readAsStringSync();
-  // To get actual <script> tag. which is not a comment.
-  // TODO: Use DomParser.
-  int scriptStart = content.lastIndexOf(SCRIPT_START);
-  int scriptEnd = content.indexOf(SCRIPT_END, scriptStart + 1);
-  if (scriptStart == -1 || scriptEnd == -1)
-    return;
-  String scriptContent =
-      content.substring(scriptStart + SCRIPT_START.length, scriptEnd);
+  var htmlText = readfile.readAsStringSync();
+  List<dom.Node> script_dom = parse(htmlText).getElementsByTagName('script');
 
-  File scriptFile = new File(readfile.path + '_csp.js');
-  scriptFile.createSync();
-  scriptFile.writeAsStringSync(scriptContent);
+  int count = 0;
+  script_dom.takeWhile((script_node) => script_node.attributes['src'] == null)
+      .forEach((script_node) {
+    File gen_file = new File('${readfile.path}.${count}.js');
+    gen_file.writeAsStringSync(script_node.text);
 
-  content = content.substring(0, scriptStart)
-          + '<script src="${basename(scriptFile.path)}"></script>'
-          + content.substring(scriptEnd + SCRIPT_END.length);
-  readfile.writeAsStringSync(content);
+    var new_content = '<script src="${basename(gen_file.path)}"></script>'; 
+    var content = script_node.outerHtml;
+    htmlText = htmlText.replaceFirst(content, new_content);
+    count++;
+  });
+  if (count > 0)
+    readfile.writeAsStringSync(htmlText);
 }
