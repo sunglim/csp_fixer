@@ -9,7 +9,7 @@ import 'package:path/path.dart';
 import 'package:html5lib/dom.dart' as dom;
 import 'package:html5lib/parser.dart' show parse;
 
-// Run csp fix. create new javascript file.
+// Extract inline <script> blocks into a separate file.
 void Fix(FileSystemEntity entity) {
   if (entity is Directory) {
     entity.listSync().forEach((directory_entity) {
