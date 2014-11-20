@@ -27,7 +27,8 @@ void Fix(FileSystemEntity entity) {
     return;
 
   var htmlText = readfile.readAsStringSync();
-  List<dom.Node> script_dom = parse(htmlText).getElementsByTagName('script');
+  dom.Document htmlDom = parse(htmlText);
+  List<dom.Node> script_dom = htmlDom.getElementsByTagName('script');
 
   int count = 0;
   script_dom.takeWhile((script_node) => script_node.attributes['src'] == null)
@@ -35,11 +36,10 @@ void Fix(FileSystemEntity entity) {
     File gen_file = new File('${readfile.path}.${count}.js');
     gen_file.writeAsStringSync(script_node.text);
 
-    var new_content = '<script src="${basename(gen_file.path)}"></script>'; 
-    var content = script_node.outerHtml;
-    htmlText = htmlText.replaceFirst(content, new_content);
+    script_node.innerHtml = '';
+    script_node.attributes['src'] = '${basename(gen_file.path)}';
     count++;
   });
   if (count > 0)
-    readfile.writeAsStringSync(htmlText);
+    readfile.writeAsStringSync(htmlDom.outerHtml);
 }
