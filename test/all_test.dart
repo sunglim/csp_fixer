@@ -13,6 +13,8 @@ main() {
     tearDown(() {
       new File('./resource/core-meta-original.html')
           .copySync('./resource/core-meta.html');
+      new File('./resource/core-overlay-layer-original.html')
+          .copySync('./resource/core-overlay-layer.html');
       
       Directory core_element_dir = new Directory('../test_resource/core_elements');
       grinder_file.deleteEntity(core_element_dir);
@@ -23,6 +25,12 @@ main() {
       csp_fix.Fix(new File('./resource/core-meta.html'));
       expect(new File('./resource/core-meta.html').readAsStringSync(),
           new File('./resource/core-meta-expect.html').readAsStringSync());
+    });
+
+    test ('Fix File2', () {
+      csp_fix.Fix(new File('./resource/core-overlay-layer.html'));
+      expect(new File('./resource/core-overlay-layer.html').readAsStringSync(),
+          new File('./resource/core-overlay-layer-expect.html').readAsStringSync());
     });
 /*
     test ('Fix Directory', () {
