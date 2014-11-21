@@ -20,7 +20,6 @@ void Fix(FileSystemEntity entity) {
   if (entity is Directory) {
     return;
   }
-  
 
   File readfile = entity;
   if (!readfile.path.endsWith('.html'))
