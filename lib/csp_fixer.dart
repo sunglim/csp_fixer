@@ -12,8 +12,8 @@ import 'package:html5lib/parser.dart' show parse;
 // Extract inline <script> blocks into a separate file.
 void Fix(FileSystemEntity entity) {
   if (entity is Directory) {
-    entity.listSync().forEach((directory_entity) {
-      return Fix(directory_entity);
+    entity.listSync().forEach((sub_entity) {
+      return Fix(sub_entity);
     });
   }
   // How Directory can enter here?
