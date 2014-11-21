@@ -16,10 +16,8 @@ void Fix(FileSystemEntity entity) {
       return Fix(sub_entity);
     });
   }
-  // How Directory can enter here?
-  if (entity is Directory) {
-    return;
-  }
+  // How does Directory can enter here? Sometimes it happen :/
+  if (entity is Directory) return;
 
   File readfile = entity;
   if (!readfile.path.endsWith('.html'))
