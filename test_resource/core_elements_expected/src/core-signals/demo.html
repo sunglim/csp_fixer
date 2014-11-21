@@ -40,7 +40,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <core-signals on-core-signal-foo="{{fooSignal}}"></core-signals>
   <content></content>
 </template>
-<script src="demo.html_csp.js"></script>
+<script>
+  Polymer('my-app', {
+    fooSignal: function(e, detail, sender) {
+      this.innerHTML += '<br>[my-app] got a [' + detail + '] signal<br>';
+    }
+  });
+</script>
 </polymer-element>
 
 </body>

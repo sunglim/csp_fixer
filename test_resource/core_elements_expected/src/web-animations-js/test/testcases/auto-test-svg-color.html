@@ -29,4 +29,8 @@ limitations under the License.
   <circle class="anim" stroke-width="10" cx="60px" cy="60px" r="50px" stroke="rgba(0, 240, 50, 1)"/>
 </svg>
 <script src="../bootstrap.js"></script>
-<script src="auto-test-svg-color.html_csp.js"></script>
+<script>
+"use strict";
+var rect = document.querySelector(".anim")
+document.timeline.play(new Animation(rect, {cx: "400px", cy: "85px", r: "75px", stroke: "rgba(150, 40, 250, 1)"}, {duration: 1000, fill: 'forwards'}));
+</script>

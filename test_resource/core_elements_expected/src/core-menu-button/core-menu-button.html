@@ -5,8 +5,7 @@ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-<!--
+--><!--
 @module Polymer Core Elements
 
 `core-menu-button` is a `core-icon-button` that opens a drop-down menu
@@ -34,9 +33,7 @@ Style the drop-down by using the `core-menu-button::shadow #dropdown` selector:
 @class core-menu-button
 @status beta
 @homepage github.io
--->
-
-<!--
+--><!--
 Fired when an item's selection state is changed. This event is fired both
 when an item is selected or deselected. The `isSelected` detail property
 contains the selection state.
@@ -45,38 +42,27 @@ contains the selection state.
 @param {Object} detail
   @param {boolean} detail.isSelected true for selection and false for deselection
   @param {Object} detail.item the item element
--->
-<!--
+--><!--
 Fired when an item element is tapped.
 
 @event core-activate
 @param {Object} detail
   @param {Object} detail.item the item element
--->
-<link href="../polymer/polymer.html" rel="import">
+--><html><head><link href="../polymer/polymer.html" rel="import">
 <link href="../core-dropdown/core-dropdown.html" rel="import">
 <link href="../core-icon-button/core-icon-button.html" rel="import">
 <link href="../core-menu/core-menu.html" rel="import">
 
-<polymer-element name="core-menu-button" attributes="icon label src selected opened halign valign valueattr multi inlineMenu">
+</head><body><polymer-element name="core-menu-button" attributes="icon label src selected opened halign valign valueattr multi inlineMenu">
   <template>
     <link rel="stylesheet" href="core-menu-button.css">
     <core-icon-button id="button" on-tap="{{toggle}}" src="{{src}}" icon="{{icon}}" active="{{opened}}"><span>{{label}}</span></core-icon-button>
-    <core-dropdown id="dropdown" relatedTarget="{{$.button}}" opened="{{opened}}" halign="{{halign}}" valign="{{valign}}">
-      <core-menu
-          selected="{{selected}}"
-          valueattr="{{valueattr}}"
-          selectedClass="{{selectedClass}}"
-          selectedProperty="{{selectedProperty}}"
-          selectedAttribute="{{selectedAttribute}}"
-          selectedItem="{{selectedItem}}"
-          selectedModel="{{selectedModel}}"
-          selectedIndex="{{selectedIndex}}"
-          excludedLocalNames="{{excludedLocalNames}}"
-          on-core-activate="{{closeAction}}">
+    <core-dropdown id="dropdown" relatedtarget="{{$.button}}" opened="{{opened}}" halign="{{halign}}" valign="{{valign}}">
+      <core-menu selected="{{selected}}" valueattr="{{valueattr}}" selectedclass="{{selectedClass}}" selectedproperty="{{selectedProperty}}" selectedattribute="{{selectedAttribute}}" selecteditem="{{selectedItem}}" selectedmodel="{{selectedModel}}" selectedindex="{{selectedIndex}}" excludedlocalnames="{{excludedLocalNames}}" on-core-activate="{{closeAction}}">
         <content select="*"></content>
       </core-menu>
     </core-dropdown>
   </template>
-  <script src="core-menu-button.html_csp.js"></script>
+  <script src="core-menu-button.html.0.js"></script>
 </polymer-element>
+</body></html>

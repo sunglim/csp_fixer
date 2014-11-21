@@ -5,9 +5,7 @@ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
-<!--
+--><!--
 `core-list` displays a virtual, 'infinite' list. The template inside the 
 `core-list` element represents the dom to create for each list item. The
 `data` property specifies an array of list item data. The `height` property
@@ -53,15 +51,15 @@ should be done via binding to the `selected` property of each model.
 
 @group Polymer Core Elements
 @element core-list
--->
-<link rel="import" href="../polymer/polymer.html">
+--><html><head><link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../core-selection/core-selection.html">
 
-<polymer-element name="core-list" on-tap="{{tapHandler}}" tabindex="-1">
+</head><body><polymer-element name="core-list" on-tap="{{tapHandler}}" tabindex="-1">
 <template>
   <core-selection id="selection" multi="{{multi}}" on-core-select="{{selectedHandler}}"></core-selection>
   <link rel="stylesheet" href="core-list.css">
   <div id="viewport" class="core-list-viewport"><content></content></div>
 </template>
-<script src="core-list.html_csp.js"></script>
+<script src="core-list.html.0.js"></script>
 </polymer-element>
+</body></html>

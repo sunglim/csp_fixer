@@ -18,7 +18,12 @@ Example:
       <div>Three</div>
     </core-pages>
 
-    <script src="core-pages.html_csp.js"></script>
+    <script>
+      document.addEventListener('click', function(e) {
+        var pages = document.querySelector('core-pages');
+        pages.selected = (pages.selected + 1) % pages.children.length;
+      });
+    </script>
 
 @group Polymer Core Elements
 @class core-pages

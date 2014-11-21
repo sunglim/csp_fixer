@@ -26,7 +26,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div>{{title.$t}}</div>
   </template>
   
-  <script src="demo.html_csp.js"></script>
+  <script>
+    document.addEventListener('polymer-ready', function() {
+      var ajax = document.querySelector("core-ajax");
+      ajax.addEventListener("core-response", 
+        function(e) {
+          document.querySelector('template').model = {
+            response: e.detail.response
+          };
+        }
+      );
+    });
+  </script>
 
 </body>
 </html>

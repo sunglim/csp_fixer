@@ -32,7 +32,25 @@ license that can be found in the LICENSE file.
     </section>
   </template>
 
-  <script src="demo.html_csp.js"></script>
+  <script>
+  (function() {
+
+    addEventListener('polymer-ready', function() {
+      var items = [];
+        for (var i=0; i < 100; i++) {
+          items.push(i);
+        }
+
+      CoreStyle.g.items = items;
+
+      addEventListener('template-bound', function(e) {
+        e.target.g = CoreStyle.g;
+        e.target.items = items;
+      });
+    });
+
+  })();
+  </script>
 
 </body>
 </html>

@@ -5,9 +5,7 @@ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
-<!--
+--><!--
 `core-drawer-panel` contains a drawer panel and a main panel.  The drawer
 and the main panel are side-by-side with drawer on the left.  When browser
 window size is smaller than the `responsiveWidth`, `core-drawer-panel`
@@ -51,17 +49,15 @@ To position the drawer to the right, add `rightDrawer` attribute.
 @group Polymer Core Elements
 @element core-drawer-panel
 @homepage github.io
--->
-
-<link rel="import" href="../core-media-query/core-media-query.html">
+--><html><head><link rel="import" href="../core-media-query/core-media-query.html">
 <link rel="import" href="../core-selector/core-selector.html">
 
-<polymer-element name="core-drawer-panel" touch-action="auto">
+</head><body><polymer-element name="core-drawer-panel" touch-action="auto">
 <template>
 
   <link rel="stylesheet" href="core-drawer-panel.css">
 
-  <core-media-query query="max-width: {{responsiveWidth}}" queryMatches="{{queryMatches}}"></core-media-query>
+  <core-media-query query="max-width: {{responsiveWidth}}" querymatches="{{queryMatches}}"></core-media-query>
 
   <core-selector class="{{ {'narrow-layout' : queryMatches, transition : transition, dragging : dragging, 'right-drawer': rightDrawer} | tokenList }}" valueattr="id" selected="{{selected}}">
 
@@ -77,5 +73,6 @@ To position the drawer to the right, add `rightDrawer` attribute.
   </core-selector>
 
 </template>
-<script src="core-drawer-panel.html_csp.js"></script>
+<script src="core-drawer-panel.html.0.js"></script>
 </polymer-element>
+</body></html>

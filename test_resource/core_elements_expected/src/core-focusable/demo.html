@@ -66,7 +66,33 @@ license that can be found in the LICENSE file.
 <body unresolved>
 
   <polymer-element name="focusable-button" tabindex="0">
-  <script src="demo.html_csp.js"></script>
+  <script>
+    (function() {
+      var p = {
+
+        eventDelegates: {
+          down: 'downAction',
+          up: 'upAction'
+        },
+
+        downAction: function() {
+          // call overriden event delegate
+          this._downAction();
+          console.log('down');
+        },
+
+        upAction: function() {
+          // call overriden event delegate
+          this._upAction();
+          console.log('up');
+        }
+
+      };
+
+      Polymer.mixin2(p, Polymer.CoreFocusable);
+      Polymer(p);
+    })();
+  </script>
   </polymer-element>
 
   <section>

@@ -37,7 +37,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <core-selection id="selection" multi on-core-select="{{selectAction}}"></core-selection>
 
     </template>
-    <script src="demo.html_csp.js"></script>
+    <script>
+    Polymer('selection-example', {
+      itemTapAction: function(e, detail, sender) {
+        this.$.selection.select(e.target);
+      },
+      selectAction: function(e, detail, sender) {
+        detail.item.classList.toggle('selected', detail.isSelected);
+      }
+    });
+    </script>
   </polymer-element>
 
   <selection-example>

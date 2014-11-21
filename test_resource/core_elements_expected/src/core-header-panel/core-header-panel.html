@@ -5,9 +5,7 @@ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
-<!--
+--><!--
 `core-header-panel` contains a header section and a content panel section.
 
 __Important:__ The `core-header-panel` will not display if its parent does not have a height.
@@ -64,20 +62,18 @@ Use `mode` to control the header and scrolling behavior.
 @group Polymer Core Elements
 @element core-header-panel
 @homepage github.io
--->
+--><html><head><link rel="import" href="../polymer/polymer.html">
 
-<link rel="import" href="../polymer/polymer.html">
-
-<polymer-element name="core-header-panel">
+</head><body><polymer-element name="core-header-panel">
 <template>
 
   <link rel="stylesheet" href="core-header-panel.css">
 
-  <div id="outerContainer" vertical layout>
+  <div id="outerContainer" vertical="" layout="">
 
     <content id="headerContent" select="core-toolbar, .core-header"></content>
 
-    <div id="mainPanel" flex vertical layout>
+    <div id="mainPanel" flex="" vertical="" layout="">
 
       <div id="mainContainer" flex?="{{mode !== 'cover'}}">
         <content id="mainContent" select="*"></content>
@@ -90,5 +86,6 @@ Use `mode` to control the header and scrolling behavior.
   </div>
 
 </template>
-<script src="core-header-panel.html_csp.js"></script>
+<script src="core-header-panel.html.0.js"></script>
 </polymer-element>
+</body></html>

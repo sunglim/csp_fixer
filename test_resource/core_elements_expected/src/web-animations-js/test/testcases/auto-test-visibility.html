@@ -12,10 +12,8 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
--->
-
-<!DOCTYPE html><meta charset="UTF-8">
-<body>
+--><!DOCTYPE html><html><head><meta charset="UTF-8">
+</head><body>
 <style>
 body {
   margin: 0px;
@@ -32,32 +30,7 @@ body {
   background: red;
 }
 </style>
-<script>
-"use strict";
-// Create the elements
-var states = {'visible':1, 'hidden':1, 'collapse':1};
-for (var start in states) {
-  for (var end in states) {
-    var frames = [start, end];
-    var testContainer = document.createElement('div');
-    testContainer.textContent = 'visibility: ' + JSON.stringify(frames);
-    document.body.appendChild(testContainer);
-    if (end == 'visible') {
-      var expectation = document.createElement('div');
-      expectation.classList.add('expectation');
-      testContainer.appendChild(expectation);
-    }
-    var testElement = document.createElement('div');
-    testElement.classList.add('test');
-    testElement.id = start + "_" + end
-    if (end == 'hidden' || end == 'collapse') {
-      testElement.classList.add('red');
-    }
-    testContainer.appendChild(testElement);
-  }
-}
-
-</script>
+<script src="auto-test-visibility.html.0.js"></script>
 <script src="../bootstrap.js"></script>
 <script>
 "use strict";
@@ -74,4 +47,8 @@ for (var start in states) {
   }
 }
 </script>
-<script src="auto-test-visibility.html_csp.js"></script>
+<script>
+"use strict";
+animations.forEach(function(anim) { document.timeline.play(anim); });
+</script>
+</body></html>

@@ -5,9 +5,7 @@ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
-<!--
+--><!--
 The `core-tooltip` element creates a hover tooltip centered for the content
 it contains. It can be positioned on the top|bottom|left|right of content using
 the `position` attribute.
@@ -63,9 +61,7 @@ You can customize this attribute with the `tipAttribute` attribute:
 @extends core-focusable
 @mixins Polymer.CoreFocusable
 @homepage http://www.polymer-project.org/components/core-tooltip/index.html
--->
-
-<link rel="import" href="../polymer/polymer.html">
+--><html><head><link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../core-focusable/core-focusable.html">
 
 <!-- TODO: would be nice to inherit from label to get .htmlFor, and .control,
@@ -74,17 +70,17 @@ You can customize this attribute with the `tipAttribute` attribute:
 <!-- TODO: detect mobile and apply the .large class, instead of manual
            control. -->
 <!-- TODO: possibly reuse core-overlay. -->
-<polymer-element name="core-tooltip" attributes="noarrow position label show tipAttribute" role="tooltip" tabindex="0">
+</head><body><polymer-element name="core-tooltip" attributes="noarrow position label show tipAttribute" role="tooltip" tabindex="0">
 <template>
 
   <link rel="stylesheet" href="core-tooltip.css">
-  <div id="tooltip" hidden?="{{!hasTooltipContent}}"
-       class="core-tooltip {{position}} {{ {noarrow: noarrow, show: show && !disabled} | tokenList}}">
+  <div id="tooltip" hidden?="{{!hasTooltipContent}}" class="core-tooltip {{position}} {{ {noarrow: noarrow, show: show &amp;&amp; !disabled} | tokenList}}">
     <content id="c" select="[{{tipAttribute}}]">{{label}}</content>
   </div>
 
   <content></content>
 
 </template>
-<script src="core-tooltip.html_csp.js"></script>
+<script src="core-tooltip.html.0.js"></script>
 </polymer-element>
+</body></html>

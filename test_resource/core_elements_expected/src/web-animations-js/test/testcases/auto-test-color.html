@@ -12,9 +12,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
--->
-
-<!DOCTYPE html><meta charset="UTF-8">
+--><!DOCTYPE html><html><head><meta charset="UTF-8">
 <style>
 .anim {
   top: 50px;
@@ -66,7 +64,7 @@ limitations under the License.
 
 </style>
 
-All three boxes should end up the same color as the outline.
+</head><body>All three boxes should end up the same color as the outline.
 
 <div id="container">
   <div id="a" class="anim"></div>
@@ -78,14 +76,33 @@ All three boxes should end up the same color as the outline.
   <div id="g" class="anim"></div>
 </div>
 
-<script>
-var expected_failures = [
-  {
-    browser_configurations: [{ msie: true }],
-    tests: ['Auto.*'],
-    message: 'IE returns rgba always.',
-  }
-];
-</script>
+<script src="auto-test-color.html.0.js"></script>
 <script src="../bootstrap.js"></script>
-<script src="auto-test-color.html_csp.js"></script>
+<script>
+"use strict";
+
+var dt = document.timeline;
+var timing = {duration: 2 * 1000, fill: 'forwards'};
+
+dt.play(new Animation(document.querySelector("#a"),
+    [{backgroundColor: "red"}, {backgroundColor: "green"}], timing));
+dt.play(new Animation(document.querySelector("#b"),
+    {backgroundColor: "rgb(0, 128, 0)"}, timing));
+dt.play(new Animation(document.querySelector("#c"),
+    new KeyframeEffect([
+      {offset: 0.25, backgroundColor: "rgb(255, 0, 0)"},
+      {offset: 0.75, backgroundColor: "rgb(0, 0, 255)"},
+    ], 'add'), timing));
+dt.play(new Animation(document.querySelector("#d"),
+    {offset: 0.5, backgroundColor: "white"}, timing));
+dt.play(new Animation(document.querySelector("#e"),
+    {offset: 0.5, backgroundColor: "white"}, timing));
+
+dt.play(new Animation(document.querySelector("#f"),
+    [{backgroundColor: "#000000"}, {backgroundColor: "#ffffff"}], timing));
+
+dt.play(new Animation(document.querySelector("#g"),
+    [{backgroundColor: "#000"}, {backgroundColor: "#fff"}], timing));
+
+</script>
+</body></html>

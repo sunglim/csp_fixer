@@ -35,4 +35,9 @@ limitations under the License.
 <div class='test target' style='font-weight: 900;'>Testing font-weight!</div>
 <div class='test' style='font-weight: 100' id='test'>Testing font-weight!</div>
 <script src="../bootstrap.js"></script>
-<script src="auto-test-font-weight.html_csp.js"></script>
+<script>
+"use strict";
+document.timeline.play(new Animation(document.querySelector('#test'),
+    [{fontWeight: '100'}, {fontWeight: '900'}],
+    {duration: 1 * 1000, delay: 1 * 1000, fill: 'forwards'}));
+</script>

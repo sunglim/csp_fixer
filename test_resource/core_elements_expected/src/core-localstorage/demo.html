@@ -39,7 +39,11 @@
       <input type="checkbox" checked="{{mode}}">
       <core-localstorage name="polymer-localstorage-x-test2" value="{{mode}}"></core-localstorage>
     </template>
-    <script src="demo.html_csp.js"></script>
+    <script>
+      Polymer('x-test2', {
+        mode: false
+      });
+    </script>
   </polymer-element>
 
 </body>

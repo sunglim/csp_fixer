@@ -240,7 +240,22 @@
     </core-animated-pages>
 
   </template>
-  <script src="quiz1.html_csp.js"></script>
+  <script>
+
+    Polymer('quiz-demo', {
+
+      page: 0,
+
+      transition: function(e) {
+        if (this.page === 2) {
+          this.page = 0;
+        } else {
+          this.page += 1;
+        }
+      }
+    });
+
+  </script>
   </polymer-element>
 
   <quiz-demo></quiz-demo>

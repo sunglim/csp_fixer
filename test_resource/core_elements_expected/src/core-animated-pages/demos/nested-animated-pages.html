@@ -6,12 +6,11 @@
     The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
     Code distributed by Google as part of the polymer project is also
     subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-<link href="../../core-icons/core-icons.html" rel="import">
+--><html><head><link href="../../core-icons/core-icons.html" rel="import">
 <link href="../../core-icon-button/core-icon-button.html" rel="import">
 <link href="../core-animated-pages.html" rel="import">
 
-<polymer-element name="nested-animated-pages">
+</head><body><polymer-element name="nested-animated-pages">
 <template>
   <style>
     :host {
@@ -58,34 +57,35 @@
     }
 
   </style>
-  <core-animated-pages id="pages" selected="{{page}}" selectedItem="{{selectedItem}}" transitions="hero-transition" no-transition?="{{noTransition}}">
+  <core-animated-pages id="pages" selected="{{page}}" selecteditem="{{selectedItem}}" transitions="hero-transition" no-transition?="{{noTransition}}">
 
-    <section id="page1" cross-fade>
-      <div class="tall-toolbar colored" style="background-color:orange;" layout vertical hero-id="thing" hero?="{{page === 0 || !noTransition}}">
-        <div layout horizontal center>
+    <section id="page1" cross-fade="">
+      <div class="tall-toolbar colored" style="background-color:orange;" layout="" vertical="" hero-id="thing" hero?="{{page === 0 || !noTransition}}">
+        <div layout="" horizontal="" center="">
           <core-icon-button icon="clear" on-tap="{{back}}"></core-icon-button>
-          <div flex>One</div>
+          <div flex="">One</div>
           <core-icon-button icon="arrow-forward" on-tap="{{transition}}"></core-icon-button>
         </div>
-        <div flex></div>
+        <div flex=""></div>
       </div>
-      <div flex class="body"></div>
+      <div flex="" class="body"></div>
     </section>
 
-    <section layout vertical id="page2" cross-fade>
-      <div class="tall-toolbar" layout vertical>
-        <div layout horizontal center>
+    <section layout="" vertical="" id="page2" cross-fade="">
+      <div class="tall-toolbar" layout="" vertical="">
+        <div layout="" horizontal="" center="">
           <core-icon-button icon="clear" on-tap="{{back}}"></core-icon-button>
-          <div flex>Two</div>
+          <div flex="">Two</div>
           <core-icon-button icon="arrow-forward" on-tap="{{transition}}"></core-icon-button>
         </div>
-        <div flex></div>
+        <div flex=""></div>
       </div>
-      <div flex class="body"></div>
+      <div flex="" class="body"></div>
       <div class="square" style="background-color:orange;" hero-id="thing" hero?="{{page === 1 || !noTransition}}"></div>
     </section>
 
   </core-animated-pages>
 </template>
-<script src="nested-animated-pages.html_csp.js"></script>
+<script src="nested-animated-pages.html.0.js"></script>
 </polymer-element>
+</body></html>

@@ -12,9 +12,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
--->
-
-<!DOCTYPE html><meta charset="UTF-8">
+--><!DOCTYPE html><html><head><meta charset="UTF-8">
 <style>
 .anim, .anim2 {
   fill: lightsteelblue;
@@ -24,7 +22,7 @@ limitations under the License.
   fill: red;
 }
 </style>
-<svg>
+</head><body><svg>
   <rect class="expectation" x="200px" y="10px" width="100px" height="100px">
   </rect>
   <rect class="expectation" x="200px" y="20px" width="200px" height="200px">
@@ -32,17 +30,27 @@ limitations under the License.
   <rect class="anim" x="100px" y="10px" width="100px" height="100px"></rect>
   <rect class="anim2" x="100px" y="10px" width="100px" height="100px"></rect>
 </svg>
-<script>
-var expected_failures = [
-  {
-    browser_configurations: [
-      { firefox: true },
-      { msie: true },
-    ],
-    tests: ['Auto generated tests at t=(1|2|3|4|5|6)000ms'],
-    message: 'Getting weird numbers in ctm.',
-  }
-];
-</script>
+<script src="auto-test-compositor.html.0.js"></script>
 <script src="../bootstrap.js"></script>
-<script src="auto-test-compositor.html_csp.js"></script>
+<script>
+"use strict";
+var rect = document.querySelector(".anim")
+var rect2 = document.querySelector(".anim2")
+
+var dt = document.timeline;
+
+dt.play(new Animation(rect, [{x: "0px"}, {x: "400px"}], {duration: 3 * 1000, fill: 'forwards'}));
+dt.play(new Animation(rect,
+    new KeyframeEffect([{x: "0px"}, {x: "200px"}], 'add'),
+    {delay: 1 * 1000, duration: 4 * 1000, fill: 'forwards'}));
+
+dt.play(new Animation(rect2, [
+  {transform: "translate(0px, 0px)"},
+  {transform: "translate(200px, 200px)"},
+], {duration: 3 * 1000, fill: 'forwards'}));
+dt.play(new Animation(rect2, new KeyframeEffect([
+  {transform: "rotate(0deg) translate(0px, 0px)"},
+  {transform: "rotate(90deg) translate(100px, 0px)"},
+], 'add'), {delay: 1 * 1000, duration: 4 * 1000, fill: 'forwards'}));
+</script>
+</body></html>

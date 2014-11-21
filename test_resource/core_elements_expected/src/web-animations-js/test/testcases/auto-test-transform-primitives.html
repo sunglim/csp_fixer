@@ -91,4 +91,7 @@ for (var i = 0; i < transformValues.length; i++) {
 }
 
 </script>
-<script src="auto-test-transform-primitives.html_csp.js"></script>
+<script>
+"use strict";
+animations.forEach(function(anim) { document.timeline.play(anim); });
+</script>

@@ -120,6 +120,30 @@
       <polymer-blink>blink</polymer-blink>
       <polymer-fadein>fade in</polymer-fadein>
  -->    </div>
-    <script src="demo.html_csp.js"></script>
+    <script>
+      var customAnimationFn = function(timeFraction, target) {
+        if (timeFraction < 1) {
+          target.textContent = timeFraction;
+        } else {
+          target.textContent = 'animated!';
+        }
+      };
+
+      document.addEventListener('polymer-ready', function() {
+        document.querySelector('.animations').addEventListener('click',
+          function(e) {
+            var animation = e.target;
+            if (animation.id === 'custom-animation') {
+              animation.customEffect = customAnimationFn;
+            }
+            animation.target = target;
+            animation.play();
+          });
+          document.getElementById('raw').addEventListener(
+            'core-animation-finish', function(e) {
+              console.log('finish!');
+            });
+      });
+    </script>
   </body>
 </html>

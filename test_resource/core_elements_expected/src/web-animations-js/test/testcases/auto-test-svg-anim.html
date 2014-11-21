@@ -30,4 +30,10 @@ limitations under the License.
   <rect class="anim" x="100px" y="10px" width="100px" height="10px"></rect>
 </svg>
 <script src="../bootstrap.js"></script>
-<script src="auto-test-svg-anim.html_csp.js"></script>
+<script>
+"use strict";
+var rect = document.querySelector(".anim")
+
+document.timeline.play(new Animation(rect, {x: "400px", height: "40px"}, {duration: 1 * 1000, fill: 'forwards'}));
+
+</script>

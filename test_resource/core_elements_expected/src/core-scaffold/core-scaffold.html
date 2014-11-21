@@ -5,9 +5,7 @@ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
-<!--
+--><!--
 `core-scaffold` provides general application layout, introducing a 
 responsive scaffold containing a header, toolbar, menu, title and 
 areas for application content.
@@ -42,14 +40,12 @@ To have the content fits to the main area, use `fit` attribute.
 @group Polymer Core Elements
 @element core-scaffold
 @homepage github.io
--->
-
-<link rel="import" href="../core-toolbar/core-toolbar.html">
+--><html><head><link rel="import" href="../core-toolbar/core-toolbar.html">
 <link rel="import" href="../core-drawer-panel/core-drawer-panel.html">
 <link rel="import" href="../core-header-panel/core-header-panel.html">
 <link rel="import" href="../core-icon-button/core-icon-button.html">
 
-<polymer-element name="core-scaffold">
+</head><body><polymer-element name="core-scaffold">
 <template>
 
   <style>
@@ -79,15 +75,15 @@ To have the content fits to the main area, use `fit` attribute.
     
   </style>
 
-  <core-drawer-panel id="drawerPanel" narrow="{{narrow}}" responsiveWidth="{{responsiveWidth}}">
+  <core-drawer-panel id="drawerPanel" narrow="{{narrow}}" responsivewidth="{{responsiveWidth}}">
 
-    <div vertical layout drawer>
+    <div vertical="" layout="" drawer="">
 
       <content select="[navigation], nav"></content>
 
     </div>
     
-    <core-header-panel id="headerPanel" main mode="{{mode}}">
+    <core-header-panel id="headerPanel" main="" mode="{{mode}}">
 
       <core-toolbar>
         <core-icon-button id="menuButton" icon="menu" on-tap="{{togglePanel}}"></core-icon-button>
@@ -101,5 +97,6 @@ To have the content fits to the main area, use `fit` attribute.
   </core-drawer-panel>
 
 </template>
-<script src="core-scaffold.html_csp.js"></script>
+<script src="core-scaffold.html.0.js"></script>
 </polymer-element>
+</body></html>

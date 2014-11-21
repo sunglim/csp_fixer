@@ -242,7 +242,14 @@
 
   </core-animated-pages>
 
-  <script src="news.html_csp.js"></script>
+  <script>
+
+    function stuff(e) {
+      var p = document.querySelector('core-animated-pages');
+      p.selected = p.selected ? 0 : 1;
+    }
+
+  </script>
 
 </body>
 </html>

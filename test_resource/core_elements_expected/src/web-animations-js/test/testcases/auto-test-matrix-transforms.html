@@ -12,9 +12,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
--->
-
-<!DOCTYPE html><meta charset="UTF-8">
+--><!DOCTYPE html><html><head><meta charset="UTF-8">
 <style>
 .anim {
   background-color: lightsteelblue;
@@ -52,21 +50,32 @@ limitations under the License.
   fill: red;
 }
 </style>
-<div class="anim" id="a"></div>
+</head><body><div class="anim" id="a"></div>
 <div class="anim" id="b"></div>
 <div class="anim" id="c"></div>
 <div class="anim" id="d"></div>
 <div class="anim" id="e"></div>
 <div style="height: 550px"></div>
 
-<script>
-var expected_failures = [
-  {
-    browser_configurations: [{ msie: true }],
-    tests: ['Auto generated tests at t=((?!(4|8|1200.0+1|16|2))[0-9.]+)ms'],
-    message: 'Getting weird numbers.',
-  }
-];
-</script>
+<script src="auto-test-matrix-transforms.html.0.js"></script>
 <script src="../bootstrap.js"></script>
-<script src="auto-test-matrix-transforms.html_csp.js"></script>
+<script>
+"use strict";
+var a = document.querySelector("#a")
+var b = document.querySelector("#b")
+var c = document.querySelector("#c")
+var d = document.querySelector("#d")
+var e = document.querySelector("#e")
+
+var dt = document.timeline;
+
+var timing = {duration: 2 * 1000, fill: 'forwards'};
+
+dt.play(new Animation(a, {transform: "translate(100px)"}, timing));
+dt.play(new Animation(b, {transform: "translate(100px)"}, timing));
+dt.play(new Animation(c, {transform: "translate(100px)"}, timing));
+dt.play(new Animation(d, {transform: "translate(100px) rotate(45deg)"}, timing));
+dt.play(new Animation(e,
+    {transform: "translate(100px) rotate(20deg) scale(0.5)"}, timing));
+</script>
+</body></html>

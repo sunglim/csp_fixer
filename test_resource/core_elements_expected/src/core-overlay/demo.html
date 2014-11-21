@@ -132,7 +132,23 @@
 
 		<button on-tap="{{tapHandler}}">Toggle Dialog</button>
 	</template>
-	<script src="demo.html_csp.js"></script>
+	<script>
+	
+	Polymer('x-container', {
+	
+		inputHandler: function(e) {
+			if (e.target.value === 'something') {
+				this.$.confirmation.toggle();
+			}
+		},
+	
+		tapHandler: function() {
+			this.$.dialog.toggle();
+		}
+	
+	});
+	
+	</script>
 	</polymer-element>
 
 </body>
