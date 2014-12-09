@@ -9,26 +9,28 @@ import 'package:path/path.dart';
 import 'package:html5lib/dom.dart' as dom;
 import 'package:html5lib/parser.dart' show parse;
 
+final _HTML_FNAME_RE = new RegExp(r'^.+\.(htm|html|HTM|HTML)$');
+
 // Extract inline <script> blocks into a separate file.
 void Fix(FileSystemEntity entity) {
   if (entity is Directory) {
     entity.listSync().forEach((sub_entity) {
-      return Fix(sub_entity);
+      Fix(sub_entity);
     });
+    return;
   }
-  // How does Directory can enter here? Sometimes it happen :/
-  if (entity is Directory) return;
+
+  if (_HTML_FNAME_RE.matchAsPrefix(entity.path) == null)
+    return;
 
   File readfile = entity;
-  if (!readfile.path.endsWith('.html'))
-    return;
 
   var htmlText = readfile.readAsStringSync();
   dom.Document htmlDom = parse(htmlText);
   List<dom.Node> script_dom = htmlDom.getElementsByTagName('script');
 
   int count = 0;
-  script_dom.takeWhile((script_node) => script_node.attributes['src'] == null)
+  script_dom.where((script_node) => script_node.attributes['src'] == null)
       .forEach((script_node) {
     File gen_file = new File('${readfile.path}.${count}.js');
     gen_file.writeAsStringSync(script_node.text);
