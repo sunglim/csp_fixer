@@ -6,10 +6,7 @@
     The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
     Code distributed by Google as part of the polymer project is also
     subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-<!doctype html>
-<html>
-<head>
+--><!DOCTYPE html><html><head>
 
   <script src="../../platform/platform.js"></script>
 
@@ -50,64 +47,36 @@
   </style>
 
 </head>
-<body unresolved fullbleed vertical layout>
+<body unresolved="" fullbleed="" vertical="" layout="">
   <template is="auto-binding">
     <core-toolbar class="toolbar">
       <core-icon-button icon="{{$.pages.selected != 0 ? 'arrow-back' : 'menu'}}" on-tap="{{back}}"></core-icon-button>
-      <div flex>Stuff</div>
+      <div flex="">Stuff</div>
       <core-icon-button icon="more-vert"></core-icon-button>
     </core-toolbar>
-    <core-animated-pages id="pages" flex selected="0" on-core-animated-pages-transition-end="{{transitionend}}" transitions="cross-fade-all hero-transition">
+    <core-animated-pages id="pages" flex="" selected="0" on-core-animated-pages-transition-end="{{transitionend}}" transitions="cross-fade-all hero-transition">
 
-      <section vertical layout>
+      <section vertical="" layout="">
 
-        <div id="container" flex horizontal wrap around-justified layout hero-p>
+        <div id="container" flex="" horizontal="" wrap="" around-justified="" layout="" hero-p="">
           <template repeat="{{item in items}}">
-            <div class="card" vertical center center-justified layout hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 1 || lastSelected === item + 1}}" on-tap="{{selectView}}"><span cross-fade>{{item}}</span></div>
+            <div class="card" vertical="" center="" center-justified="" layout="" hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 1 || lastSelected === item + 1}}" on-tap="{{selectView}}"><span cross-fade="">{{item}}</span></div>
           </template>
         </div>
 
       </section>
 
       <template repeat="{{item in items}}">
-        <section vertical layout>
-          <div class="view" flex vertical center center-justified layout hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 1 || $.pages.selected === 0}}"><span cross-fade>{{item}}</span></div>
+        <section vertical="" layout="">
+          <div class="view" flex="" vertical="" center="" center-justified="" layout="" hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 1 || $.pages.selected === 0}}"><span cross-fade="">{{item}}</span></div>
         </section>
       </template>
 
     </core-animated-pages>
   </template>
 
-  <script>
+  <script src="grid.html.0.js"></script>
 
-    addEventListener('template-bound', function(e) {
-      var scope = e.target;
-      var items = [], count=50;
-      for (var i=0; i < count; i++) {
-        items.push(i);
-      }
 
-      scope.items = items;
 
-      scope.selectView = function(e) {
-        var i = e.target.templateInstance.model.item;
-        this.$.pages.selected = i+1;
-      }
-
-      scope.back = function() {
-        this.lastSelected = this.$.pages.selected;
-        console.log(this.lastSelected);
-        this.$.pages.selected = 0;
-      }
-
-      scope.transitionend = function() {
-        if (this.lastSelected) {
-          this.lastSelected = null;
-        }
-      }
-    })
-
-  </script>
-
-</body>
-</html>
+</body></html>

@@ -12,9 +12,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
--->
-
-<!DOCTYPE html><meta charset="UTF-8">
+--><!DOCTYPE html><html><head><meta charset="UTF-8">
 <style>
 .anim {
   left: 0px;
@@ -24,16 +22,7 @@ limitations under the License.
   position: relative;
 }
 </style>
-<div class='anim' id='a'></div>
+</head><body><div class="anim" id="a"></div>
 <script src="../bootstrap.js"></script>
-<script>
-"use strict";
-
-var anim = new Animation(a, [{ left: '100px'}, {left: '200px'}], 
-  {delay: 0.2 * 1000, duration: 0.3 * 1000, endDelay: 0.4 * 1000, iterations: 3, fill: 'both'});
-
-var par = new AnimationGroup([anim], {fill: 'none', iterations: 2})
-
-document.timeline.play(par);
-
-</script>
+<script src="auto-test-delay.html.0.js"></script>
+</body></html>

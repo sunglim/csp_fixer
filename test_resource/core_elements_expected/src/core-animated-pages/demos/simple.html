@@ -6,10 +6,7 @@
     The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
     Code distributed by Google as part of the polymer project is also
     subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-<!doctype html>
-<html>
-<head>
+--><!DOCTYPE html><html><head>
 
   <script src="../../platform/platform.js"></script>
   <link href="../core-animated-pages.html" rel="import">
@@ -40,59 +37,40 @@
   </style>
 
 </head>
-<body unresolved>
+<body unresolved="">
   <select onchange="change();">
-    <option value="cross-fade-all" selected>cross-fade-all</option>
+    <option value="cross-fade-all" selected="">cross-fade-all</option>
     <option value="slide-from-right">slide-from-right</option>
   </select>
 
   <core-animated-pages onclick="stuff();" transitions="cross-fade-all">
     <section>
-      <div layout vertical center center-justified style="background:red;">
+      <div layout="" vertical="" center="" center-justified="" style="background:red;">
         <div>1</div>
       </div>
     </section>
     <section>
-      <div layout vertical center center-justified style="background:blue;">
+      <div layout="" vertical="" center="" center-justified="" style="background:blue;">
         <div>2</div>
       </div>
     </section>
     <section>
-      <div layout vertical center center-justified style="background:purple;">
+      <div layout="" vertical="" center="" center-justified="" style="background:purple;">
         <div>3</div>
       </div>
     </section>
     <section>
-      <div layout vertical center center-justified style="background:orange;">
+      <div layout="" vertical="" center="" center-justified="" style="background:orange;">
         <div>4</div>
       </div>
     </section>
     <section>
-      <div layout vertical center center-justified style="background:green;">
+      <div layout="" vertical="" center="" center-justified="" style="background:green;">
         <div>5</div>
       </div>
     </section>
   </core-animated-pages>
 
-  <script>
-    function change() {
-      var s = document.querySelector('select');
-      document.querySelector('core-animated-pages').transitions = document.querySelector('select').options[s.selectedIndex].value;
-    }
+  <script src="simple.html.0.js"></script>
 
-    var up = true;
-    var max = 4;
-    function stuff() {
-      var p = document.querySelector('core-animated-pages');
-      if (up && p.selected === max || !up && p.selected === 0) {
-        up = !up;
-      }
-      if (up) {
-        p.selected += 1;
-      } else {
-        p.selected -= 1;
-      }
-    }
-  </script>
-</body>
-</html>
+</body></html>

@@ -6,10 +6,7 @@
     The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
     Code distributed by Google as part of the polymer project is also
     subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-<!doctype html>
-<html>
-<head>
+--><!DOCTYPE html><html><head>
 
   <script src="../../platform/platform.js"></script>
 
@@ -21,7 +18,7 @@
 
   <link href="../core-animated-pages.html" rel="import">
 
-  <style shim-shadowdom>
+  <style shim-shadowdom="">
     body {
       font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
       margin: 0;
@@ -147,9 +144,9 @@
   </style>
 
 </head>
-<body unresolved>
+<body unresolved="">
 
-  <polymer-element name="shadow-div" noscript>
+  <polymer-element name="shadow-div" noscript="">
     <template>
       <style>
         :host {
@@ -167,20 +164,20 @@
 
       <core-toolbar class="tall toolbar">
         <core-icon icon="menu"></core-icon>
-        <div flex>Highlights</div>
+        <div flex="">Highlights</div>
         <core-icon icon="social:share"></core-icon>
         <core-icon icon="bookmark"></core-icon>
         <core-icon icon="more-vert"></core-icon>
       </core-toolbar>
 
-      <div class="container" hero-p>
+      <div class="container" hero-p="">
 
-        <shadow-div class="card" hero-p onclick="stuff()">
+        <shadow-div class="card" hero-p="" onclick="stuff()">
           <div class="card-top"></div>
-          <div class="card-bottom" hero-p>
+          <div class="card-bottom" hero-p="">
             <div class="headline">Google's Craziest Offices</div>
-            <div class="source-container" hero-p layout horizontal center>
-              <div class="icon" hero-id="icon-header" hero></div>
+            <div class="source-container" hero-p="" layout="" horizontal="" center="">
+              <div class="icon" hero-id="icon-header" hero=""></div>
               <div class="two-lines">
                 <div class="source">The New York Times</div>
                 <div class="time">36 minutes ago</div>
@@ -189,7 +186,7 @@
           </div>
         </shadow-div>
 
-        <div class="tiles-container" layout horizontal justified>
+        <div class="tiles-container" layout="" horizontal="" justified="">
 
           <shadow-div class="tile"></shadow-div>
           <shadow-div class="tile"></shadow-div>
@@ -204,10 +201,10 @@
 
     <section id="second">
 
-      <core-toolbar class="tall" hero-p>
+      <core-toolbar class="tall" hero-p="">
 
-        <core-toolbar class="tall toolbar-2" hero-id="icon-header" hero>
-          <div flex class="middle">T</div>
+        <core-toolbar class="tall toolbar-2" hero-id="icon-header" hero="">
+          <div flex="" class="middle">T</div>
         </core-toolbar>
       </core-toolbar>
 
@@ -217,7 +214,7 @@
           <div class="card-top-2"></div>
           <div class="card-bottom">
             <div class="headline">Some long overflowing headline</div>
-            <div class="source-container" layout horizontal center>
+            <div class="source-container" layout="" horizontal="" center="">
               <div class="icon" style="background:red;"></div>
               <div class="two-lines">
                 <div class="source">The New York Times</div>
@@ -227,7 +224,7 @@
           </div>
         </shadow-div>
 
-        <div class="tiles-container" layout horizontal justified>
+        <div class="tiles-container" layout="" horizontal="" justified="">
 
           <shadow-div class="tile"></shadow-div>
           <shadow-div class="tile"></shadow-div>
@@ -242,14 +239,8 @@
 
   </core-animated-pages>
 
-  <script>
+  <script src="news.html.0.js"></script>
 
-    function stuff(e) {
-      var p = document.querySelector('core-animated-pages');
-      p.selected = p.selected ? 0 : 1;
-    }
 
-  </script>
 
-</body>
-</html>
+</body></html>

@@ -1,14 +1,11 @@
-<!doctype html>
-<!--
+<!DOCTYPE html><!--
 Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
 The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-<html>
-<head>
+--><html><head>
   <title>core-list</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <script src="../platform/platform.js"></script>
@@ -33,11 +30,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
   </style>
 </head>
-<body fit>
+<body fit="">
 
 <list-test></list-test>
 
-<polymer-element name="list-test" layout vertical>
+<polymer-element name="list-test" layout="" vertical="">
 <template>
   <style>
     .item {
@@ -111,14 +108,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <button on-tap="{{clearSelection}}">Clear selection</button>
     <button on-tap="{{deleteSelection}}">Delete selection</button>
   </div>
-  <div layout horizontal wrap class="spaced">
+  <div layout="" horizontal="" wrap="" class="spaced">
     Selected values: 
     <template repeat="{{multi ? selection: [selection]}}">
       <div class="selection-display">Id {{id}}: {{checked}} {{value}} {{['a','b','c'][type]}}</div>
     </template>
   </div>
-  <core-list id="list" data="{{data}}" selectionEnabled="{{selectionEnabled}}"
-    selection="{{selection}}" height="80" flex multi?={{multi}}>
+  <core-list id="list" data="{{data}}" selectionenabled="{{selectionEnabled}}" selection="{{selection}}" height="80" flex="" multi?="{{multi}}">
     <template>
       <div class="item {{ {selected: selected} | tokenList }}">
         <div class="message" style="background-image: url(images/{{model.image}}.png);">
@@ -126,7 +122,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <div class="subject">Row: {{index}}, Record ID: {{model.id}}</div>
           <input type="checkbox" checked="{{model.checked}}">
           <input type="number" value="{{model.value}}" class="narrow">
-          <select selectedIndex="{{model.type}}"><option>a</option><option>b</option><option>c</option></select>
+          <select selectedindex="{{model.type}}"><option>a</option><option>b</option><option>c</option></select>
           <span class="body">{{model.details}}</span>
         </div>
       </div>
@@ -134,101 +130,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </core-list>
 
 </template>
-<script>
-(function() {
-  var strings = [
-    "PARKOUR!",
-    "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-  ];
-
-  var namegen = {
-    generateString: function(inLength) {
-      var s = '';
-      for (var i=0; i<inLength; i++) {
-        s += String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-      }
-      return s;
-    },
-    generateName: function(inMin, inMax) {
-      return this.generateString(Math.floor(Math.random() * (inMax - inMin + 1) + inMin));
-    }
-  };
-
-  Polymer('list-test', {
-    addIdx: 0,
-    deleteIdx: 0,
-    count: 50000,
-    ready: function() {
-      this.initArrayFull();
-    },
-    generateData: function() {
-      var names = [], data = [];
-      for (var i=0; i<this.count; i++) {
-        names.push(namegen.generateName(4, 8));
-      }
-      names.sort();
-      for (i=0; i<this.count; i++) {
-        data.push({
-          id: i,
-          name: names[i],
-          details: strings[i % 3],
-          image: i % 4,
-          value: 0,
-          type: 0,
-          checked: false
-        });
-      }
-      return data;
-    },
-    addRecord: function() {
-      this.data.splice(this.addIdx, 0, {
-        id: ++this.count,
-        name: namegen.generateName(4, 8),
-        details: strings[this.count % 3],
-        image: this.count % 4,
-        value: 0,
-        type: 0,
-        checked: false
-      });
-    },
-    deleteRecord: function() {
-      this.data.splice(this.deleteIdx, 1);
-    },
-    deleteSelection: function() {
-      var i, idx;
-      if (this.multi) {
-        if (this.selection.length) {
-          for (i=0; i<this.selection.length; i++) {
-            idx = this.data.indexOf(this.selection[i]);
-            this.data.splice(idx, 1);
-          }
-        }
-      } else {
-        idx = this.data.indexOf(this.selection);
-        this.data.splice(idx, 1);
-      }
-    },
-    clearSelection: function() {
-      this.$.list.clearSelection();
-    },
-    deleteAll: function() {
-      this.data.splice(0,this.data.length);
-      // this.data.length = 0;
-    },
-    deleteArray: function() {
-      this.data = null;
-    },
-    initArrayEmpty: function() {
-      this.data = [];
-    },
-    initArrayFull: function() {
-      this.data = this.generateData();
-    }
-  });
-})();  
-</script>
+<script src="demo.html.0.js"></script>
 </polymer-element>
 
-</body>
-</html>
+
+
+</body></html>

@@ -12,9 +12,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
--->
-
-<!DOCTYPE html><meta charset="UTF-8">
+--><!DOCTYPE html><html><head><meta charset="UTF-8">
 <style>
 .anim {
   left: 0px;
@@ -50,7 +48,7 @@ limitations under the License.
 }
 </style>
 
-<div id="expectation"></div>
+</head><body><div id="expectation"></div>
 
 <div>
   <div id="a" class="anim a"></div>
@@ -65,22 +63,5 @@ limitations under the License.
 <div style="height:450px"></div>
 
 <script src="../bootstrap.js"></script>
-<script>
-"use strict";
-
-var effect = [{left: "100px"}, {left: "200px"}];
-
-var a1 = new Animation(
-    document.querySelector("#a"), effect, {duration: 1.0 * 1000, fill: "forwards"});
-var a2 = new Animation(
-    document.querySelector("#b"), effect, {duration: 2.0 * 1000, fill: "forwards"});
-var a3 = new Animation(
-    document.querySelector("#c"), effect, {duration: 1.0 * 1000, fill: "forwards"});
-var a4 = new Animation(
-    document.querySelector("#d"), effect, {duration: 2.0 * 1000, fill: "forwards"});
-var pgroup1 = new AnimationGroup([a1, a2], {name: "p1", fill: "forwards"});
-var pgroup2 = new AnimationGroup([a4, a3], {name: "p2", fill: "forwards"});
-document.timeline.play(
-    new AnimationSequence([pgroup1, pgroup2], {name: "s", fill: "forwards"}));
-
-</script>
+<script src="auto-test-seq-speed.html.0.js"></script>
+</body></html>

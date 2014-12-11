@@ -12,20 +12,14 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
--->
-
-
-<!--
+--><!--
 This test is currently broken.
 1) The test doesn't work without simulating all the frames
 2) The test fails when you simulate on t=0 boundary because currentTime_ ends
    up null
 3) The test fails when you simulate on t=0 boundary because relativeTime
    returns null when zeroTime is null
--->
-
-
-<!DOCTYPE html><meta charset="UTF-8">
+--><!DOCTYPE html><html><head><meta charset="UTF-8">
 <style>
 .anim {
   left: 0px;
@@ -40,26 +34,9 @@ This test is currently broken.
 }
 </style>
 
-<div id="a" class="anim a"></div>
+</head><body><div id="a" class="anim a"></div>
 
 
 <script src="../bootstrap.js"></script>
-<script>
-"use strict";
-
-var a1 = new Animation(document.querySelector("#a"),
-    [{left: "0px"}, {left: "500px"}],
-    {duration: 10 * 1000, direction: 'alternating', iterations: Infinity});
-var player1 = document.timeline.play(a1);
-
-var a2 = new Animation(undefined,
-    function(timeFraction) {
-      var playbackRate = 0.01 + 10 * timeFraction;
-      player1.playbackRate  = playbackRate
-      player2.playbackRate = playbackRate;
-      document.querySelector("#a").textContent = playbackRate;
-    },
-    a1.timing.clone());
-var player2 = document.timeline.play(a2);
-
-</script>
+<script src="disabled-auto-test-change-playback-rate.html.0.js"></script>
+</body></html>

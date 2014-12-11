@@ -12,9 +12,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
--->
-
-<!DOCTYPE html><meta charset="UTF-8">
+--><!DOCTYPE html><html><head><meta charset="UTF-8">
 <style>
 #parent, #test {
   height: 600px;
@@ -23,20 +21,10 @@ body {
   margin: 0px;
 }
 </style>
-<body>
-<div id="parent" style='background:lightsteelblue'>
-  <div style='background:red' id='test'></div>
+</head><body>
+<div id="parent" style="background:lightsteelblue">
+  <div style="background:red" id="test"></div>
 </div>
 <script src="../bootstrap.js"></script>
-<script>
-"use strict";
-document.timeline.play(new Animation(document.querySelector('#test'), [
-  {display: 'none'},
-  {display: 'block'},
-  {display: 'none'},
-  {display: 'block'},
-  {display: 'none'},
-  {display: 'block'},
-  {display: 'none'},
-], {duration: 0.5 * 1000, fill: 'forwards'}));
-</script>
+<script src="auto-test-non-numeric.html.0.js"></script>
+</body></html>

@@ -15,7 +15,6 @@ main() {
           .copySync('./resource/core-meta.html');
       new File('./resource/core-overlay-layer-original.html')
           .copySync('./resource/core-overlay-layer.html');
-      
       Directory core_element_dir = new Directory('../test_resource/core_elements');
       grinder_file.deleteEntity(core_element_dir);
       grinder_file.copyDirectory(new Directory('../test_resource/core_elements_original'), core_element_dir);
@@ -33,8 +32,6 @@ main() {
           new File('./resource/core-overlay-layer-expect.html').readAsStringSync());
     });
 
-    // TODO(sunglim): Temporaily disable until expected test resource is updated.
-    /*
     test ('Fix Directory', () {
       Directory target = new Directory('../test_resource/core_elements');
       csp_fix.Fix(target);
@@ -54,6 +51,5 @@ main() {
       });
       expect(content, expectedContent);
     });
-    */
   });
 }

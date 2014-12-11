@@ -32,23 +32,6 @@ body {
 </style>
 <script src="auto-test-visibility.html.0.js"></script>
 <script src="../bootstrap.js"></script>
-<script>
-"use strict";
-var timing = {duration: 0.5 * 1000, easing: 'steps(2, end)', fill: 'forwards'};
-
-// Add the animations
-var animations = [];
-for (var start in states) {
-  for (var end in states) {
-    var effect = [{visibility: start}, {visibility: end}];
-    var testElement = document.getElementById(start + "_" + end);
-    animations.push(
-        new Animation(testElement, effect, timing));
-  }
-}
-</script>
-<script>
-"use strict";
-animations.forEach(function(anim) { document.timeline.play(anim); });
-</script>
+<script src="auto-test-visibility.html.1.js"></script>
+<script src="auto-test-visibility.html.2.js"></script>
 </body></html>

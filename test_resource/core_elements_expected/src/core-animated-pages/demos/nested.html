@@ -6,10 +6,7 @@
     The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
     Code distributed by Google as part of the polymer project is also
     subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-<!doctype html>
-<html>
-<head>
+--><!DOCTYPE html><html><head>
   <title>core-animated-pages</title>
   <script src="../../platform/platform.js"></script>
   <link href="nested-animated-pages.html" rel="import">
@@ -65,7 +62,7 @@
 
     <core-animated-pages selected="{{page}}" transitions="hero-transition cross-fade">
 
-      <section on-tap="{{transition}}" layout horizontal center-justified>
+      <section on-tap="{{transition}}" layout="" horizontal="" center-justified="">
 
         <div class="square" id="thing1" hero-id="thing" hero?="{{subpage === 0}}" cross-fade?="{{subpage !== 0}}">thing 1</div>
         <div class="square" id="thing2" hero-id="thing" hero?="{{subpage === 1}}" cross-fade?="{{subpage !== 1}}">thing 2</div>
@@ -76,37 +73,11 @@
 
     </core-animated-pages>
   </template>
-  <script>
-
-    Polymer('nested-demo', {
-
-      page: 0,
-      subpage: 0,
-
-      transition: function(e) {
-
-        var el = e.target;
-        if (el.id === "thing1") {
-          this.subpage = 0;
-        } else {
-          this.subpage = 1;
-        }
-
-        setTimeout(function() {
-          this.page = 1;
-        }.bind(this), 200);
-      },
-
-      back: function() {
-        this.page = 0;
-      }
-
-    });
-
-  </script>
+  <script src="nested.html.0.js"></script>
   </polymer-element>
 
   <nested-demo></nested-demo>
 
-</body>
-</html>
+
+
+</body></html>

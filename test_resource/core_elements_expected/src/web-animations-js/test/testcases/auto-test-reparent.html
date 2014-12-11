@@ -12,9 +12,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
--->
-
-<!DOCTYPE html><meta charset="UTF-8">
+--><!DOCTYPE html><html><head><meta charset="UTF-8">
 <style>
 .anim {
   left: 0px;
@@ -30,31 +28,12 @@ limitations under the License.
 
 </style>
 
-<div>Right edge of each box should align with black line at end of test.</div>
+</head><body><div>Right edge of each box should align with black line at end of test.</div>
 
 <div style="width: 400px;" class="expected">
   <div id="a" class="anim"></div>
 </div>
 
 <script src="../bootstrap.js"></script>
-<script>
-"use strict";
-
-// Run a simple animation. It should animate indefinitely.
-var anim = new Animation(document.getElementById("a"),
-    [{left: "100px"}, {left: "500px"}], {iterations: Infinity, duration: 2.0 * 1000});
-document.timeline.play(anim);
-
-// After 3.0s, move it to a parallel group and run that.
-testharness_timeline.schedule(function() {
-    document.timeline.play(new AnimationGroup([anim],
-        {duration: 1.0 * 1000, iterations: 3.0}));
-  }, 3000);
-
-// After 3.0s, move it to a parallel group and run that.
-testharness_timeline.schedule(function() {
-    document.timeline.play(new AnimationGroup([anim],
-        {duration: 1.5 * 1000, iterations: 3.0}));
-  }, 8000);
-
-</script>
+<script src="auto-test-reparent.html.0.js"></script>
+</body></html>

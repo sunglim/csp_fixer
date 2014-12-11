@@ -12,9 +12,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
--->
-
-<!DOCTYPE html><meta charset="UTF-8">
+--><!DOCTYPE html><html><head><meta charset="UTF-8">
 <style>
 .anim {
   left: 0px;
@@ -53,7 +51,7 @@ limitations under the License.
 
 </style>
 
-<div class="expectation" style="top: 0px; left: 100px;"></div>
+</head><body><div class="expectation" style="top: 0px; left: 100px;"></div>
 <div class="expectation" style="top: 100px; left: 200px;"></div>
 <div class="expectation" style="top: 200px; left: 300px;"></div>
 <div class="expectation" style="top: 300px; left: 400px;"></div>
@@ -68,16 +66,5 @@ limitations under the License.
 <div style="height: 500px;"></div>
 
 <script src="../bootstrap.js"></script>
-<script>
-"use strict";
-
-var divs = document.querySelectorAll(".anim");
-
-var group = new AnimationGroup([], 2000);
-
-for (var i = 0; i < divs.length; i++) {
-  group.append(new Animation(divs[i], {left: (100 * (i+1)) + "px"}, {duration: 2 * 1000, fill: 'forwards'}));
-}
-document.timeline.play(group);
-
-</script>
+<script src="auto-test-to-animation.html.0.js"></script>
+</body></html>

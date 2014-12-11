@@ -12,9 +12,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
--->
-
-<!DOCTYPE html><meta charset="UTF-8">
+--><!DOCTYPE html><html><head><meta charset="UTF-8">
 <style>
 .anim {
     width: 800px;
@@ -24,37 +22,12 @@ limitations under the License.
     background-color: lightsteelblue;
 }
 </style>
-<div class="anim" id="overflow"></div>
+</head><body><div class="anim" id="overflow"></div>
 <div class="anim" id="overflowControl"></div>
 <div class="anim" id="underflow"></div>
 <div class="anim" id="underflowControl"></div>
 <script src="../bootstrap.js"></script>
-<script>
-"use strict";
-
-var effect = [{transform: "translate(-800px,0px)"}, {transform: "translate(0px,0px)"}];
-
-var group = new AnimationGroup();
-document.timeline.play(new AnimationGroup([
-    new Animation(overflow,
-                  effect,
-                  { duration: 0.3 * 1000, delay: 0.25 * 1000, fill: 'forwards' })]));
-
-document.timeline.play(new AnimationGroup([
-    new Animation(overflowControl,
-                  effect,
-                  { duration: 0.3 * 1000, delay: 0.2 * 1000, fill: 'forwards' })]));
-
-document.timeline.play(new AnimationGroup([
-    new Animation(underflow,
-                  effect,
-                  { duration: 0.3 * 1000, delay: 0.20001 * 1000, fill: 'none' })]));
-
-document.timeline.play(new AnimationGroup([
-    new Animation(underflowControl,
-                  effect,
-                  { duration: 0.3 * 1000, delay: 0.2 * 1000, fill: 'none' })]));
-
-</script>
+<script src="auto-test-wrapping-bug.html.0.js"></script>
 
 
+</body></html>
