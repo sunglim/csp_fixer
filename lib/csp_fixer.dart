@@ -32,7 +32,8 @@ void Fix(FileSystemEntity entity) {
   int count = 0;
   script_dom.where((script_node) => script_node.attributes['src'] == null)
       .forEach((script_node) {
-    File gen_file = new File('${readfile.path}.${count}.js');
+    File gen_file =
+        new File('${readfile.path}.${count}.${_getExtension(script_node)}');
     gen_file.writeAsStringSync(script_node.text);
 
     script_node.innerHtml = '';
@@ -41,4 +42,20 @@ void Fix(FileSystemEntity entity) {
   });
   if (count > 0)
     readfile.writeAsStringSync(htmlDom.outerHtml);
+}
+
+const _TYPE_TO_EXT = const {
+  null: 'js',
+  'application/javascript': 'js',
+  'text/javascript': 'js',
+  'application/dart': 'dart',
+  'text/coffeescript': 'coffee'
+};
+
+String _getExtension(dom.Element script) {
+  final String type = script.attributes['type'];
+  final String ext = _TYPE_TO_EXT[type];
+  // NOTE: The attempt to deduce the extension for an unknown type is only
+  // half-decent.
+  return ext != null ? ext : type.replaceAll('application/', '');
 }
