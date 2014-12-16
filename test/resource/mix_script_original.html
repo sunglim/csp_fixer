@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>In-Browser test</title>
+<!--
+`core-meta` provides a method of constructing a self-organizing database.
+It is useful to collate element meta-data for things like catalogs and for 
+designer.
+
+    <core-meta id="my-element" label="My Element">
+      <property name="color" value="blue"></property>
+    </core-meta>
+
+An application can import as many of these files as it wants, and then use 
+`core-meta` again to access the collected data.
+
+    <script>
+      var meta = document.createElement('core-meta');
+      console.log(meta.list); // dump a list of all meta-data elements that have been created
+    </script>
+-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="application/javascript" src="http://github.com/jashkenas/coffee-script/raw/master/extras/coffee-script.js"></script>
+    <script type="text/coffeescript">
+      $ -> $(‘#header‘).css ‘background-color‘, ‘green‘
+    </script>
+    <script>
+      alert('no type javascript');
+    </script>
+    <script type="text/javascript">
+      alert('type/javascript');
+    </script>
+    <script type="application/javascript">
+      alert('application/javascript');
+    </script>
+    <script type="application/dart">
+      print("dart script");
+    </script>$
+  </head>
+  <body>
+    <h1 id="header" style="color:white">CoffeeScript is alive!</h1>
+  </body>
+</html>

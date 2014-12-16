@@ -1,0 +1,3 @@
+
+      alert('no type javascript');
+    
